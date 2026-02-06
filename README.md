@@ -1,8 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Navya Architects
 
-## Getting Started
+A modern, high-performance website for Navya Architects, showcasing architectural excellence through elegant design and smooth animations.
 
-First, run the development server:
+## ✨ Features
+
+- **Modern Tech Stack**: Built with Next.js 16, React 19, and TypeScript
+- **Smooth Animations**: Powered by Framer Motion and GSAP
+- **Buttery Scrolling**: Lenis smooth scroll implementation
+- **Responsive Design**: Tailwind CSS 4 for a mobile-first approach
+- **Performance Optimized**: Server-side rendering and optimized assets
+- **SEO Friendly**: Built-in Next.js SEO optimizations
+
+## 🏗️ Project Structure
+
+```
+navyarchitects/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx          # Root layout
+│   │   ├── page.tsx            # Home page
+│   │   ├── about/              # About page
+│   │   └── globals.css         # Global styles
+│   └── components/
+│       ├── Hero.tsx            # Landing section
+│       ├── About.tsx           # About section
+│       ├── Philosophy.tsx      # Philosophy section
+│       ├── Services.tsx        # Services showcase
+│       ├── SelectedWorks.tsx   # Portfolio section
+│       ├── Contact.tsx         # Contact section
+│       ├── Navbar.tsx          # Navigation bar
+│       └── SmoothScroll.tsx    # Smooth scroll wrapper
+├── public/                     # Static assets
+└── package.json
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/SANDESH9098/navyarchitects.git
+cd navyarchitects
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +68,80 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 16](https://nextjs.org/) - React framework for production
+- **UI Library**: [React 19](https://react.dev/) - JavaScript library for building user interfaces
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+- **Animations**:
+  - [Framer Motion](https://www.framer.com/motion/) - Production-ready motion library
+  - [GSAP](https://greensock.com/gsap/) - Professional-grade animation platform
+- **Smooth Scroll**: [Lenis](https://lenis.studiofreight.com/) - Smooth scroll library
 
-## Learn More
+## 🛠️ Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Styling**: Edit `src/app/globals.css` and Tailwind classes in components
+- **Content**: Update component files in `src/components/`
+- **Pages**: Modify or add pages in `src/app/`
+- **Configuration**: Adjust `next.config.ts` and `tailwind.config.ts`
 
-## Deploy on Vercel
+## 📱 Sections
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Hero** - Eye-catching landing section with animations
+2. **About** - Introduction to Navya Architects
+3. **Philosophy** - Design philosophy and approach
+4. **Services** - Architectural services offered
+5. **Selected Works** - Portfolio showcase
+6. **Contact** - Get in touch section
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚢 Deployment
+
+### Deploy on Vercel (Recommended)
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/SANDESH9098/navyarchitects)
+
+### Manual Deployment
+
+1. Build the project:
+
+```bash
+npm run build
+```
+
+2. Start the production server:
+
+```bash
+npm run start
+```
+
+For other deployment options, check the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## 📄 License
+
+This project is private and proprietary.
+
+## 🤝 Contributing
+
+This is a private project. For any inquiries, please contact the maintainer.
+
+## 📧 Contact
+
+For more information about Navya Architects, please visit our website or contact us through the contact form.
+
+---
+
+Built with ❤️ by Navya Architects
