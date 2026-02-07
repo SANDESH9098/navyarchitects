@@ -1,9 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    setSubmitted(true);
+    form.reset();
+    setTimeout(() => setSubmitted(false), 4000);
+  };
+
   return (
     <section
       id="contact"
@@ -44,35 +59,59 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
+            onSubmit={handleSubmit}
+            noValidate
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="block text-xs uppercase tracking-widest text-neutral-500">
-                  Name
+                <label
+                  htmlFor="contact-name"
+                  className="block text-xs uppercase tracking-widest text-neutral-500"
+                >
+                  Name <span className="text-red-400">*</span>
                 </label>
                 <input
+                  id="contact-name"
+                  name="name"
                   type="text"
+                  required
+                  minLength={2}
                   placeholder="Your name"
-                  className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20"
+                  className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20 invalid:[&:not(:placeholder-shown)]:border-red-400"
                 />
               </div>
               <div className="space-y-2">
-                <label className="block text-xs uppercase tracking-widest text-neutral-500">
-                  Email
+                <label
+                  htmlFor="contact-email"
+                  className="block text-xs uppercase tracking-widest text-neutral-500"
+                >
+                  Email <span className="text-red-400">*</span>
                 </label>
                 <input
+                  id="contact-email"
+                  name="email"
                   type="email"
+                  required
                   placeholder="your@email.com"
-                  className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20"
+                  className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20 invalid:[&:not(:placeholder-shown)]:border-red-400"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest text-neutral-500">
-                Project Type
+              <label
+                htmlFor="contact-type"
+                className="block text-xs uppercase tracking-widest text-neutral-500"
+              >
+                Project Type <span className="text-red-400">*</span>
               </label>
-              <select className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg text-white/60 appearance-none cursor-pointer">
-                <option value="" className="bg-[#1a1a1a]">
+              <select
+                id="contact-type"
+                name="projectType"
+                required
+                defaultValue=""
+                className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg text-white/60 appearance-none cursor-pointer invalid:text-white/30"
+              >
+                <option value="" disabled className="bg-[#1a1a1a]">
                   Select project type
                 </option>
                 <option value="residential" className="bg-[#1a1a1a]">
@@ -90,23 +129,46 @@ export default function Contact() {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="block text-xs uppercase tracking-widest text-neutral-500">
-                Message
+              <label
+                htmlFor="contact-message"
+                className="block text-xs uppercase tracking-widest text-neutral-500"
+              >
+                Message <span className="text-red-400">*</span>
               </label>
               <textarea
+                id="contact-message"
+                name="message"
+                required
+                minLength={10}
                 rows={3}
                 placeholder="Tell us about your project..."
-                className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20 resize-none"
+                className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20 resize-none invalid:[&:not(:placeholder-shown)]:border-red-400"
               />
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="mt-4 w-full py-4 bg-white text-black hover:bg-white/90 transition-all duration-300 uppercase tracking-[0.2em] text-sm font-medium"
-            >
-              Start Your Project
-            </motion.button>
+            <div className="relative">
+              <motion.button
+                type="submit"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="mt-4 w-full py-4 bg-white text-black hover:bg-white/90 transition-all duration-300 uppercase tracking-[0.2em] text-sm font-medium"
+              >
+                Start Your Project
+              </motion.button>
+
+              <AnimatePresence>
+                {submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="mt-4 text-center text-sm text-green-400 tracking-wider"
+                  >
+                    Thank you! We&apos;ll get back to you within 24 hours.
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.form>
         </div>
 
