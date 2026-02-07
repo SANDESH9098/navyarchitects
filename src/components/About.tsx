@@ -246,10 +246,11 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.7 }}
             >
-              <motion.button
+              <motion.a
+                href="#projects"
                 whileHover={{ scale: 1.05, backgroundColor: "#1a1a1a" }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-10 py-4 border-2 border-stone-800 text-stone-800 font-sans text-sm tracking-wider uppercase overflow-hidden transition-colors duration-300"
+                className="group relative inline-block px-10 py-4 border-2 border-stone-800 text-stone-800 font-sans text-sm tracking-wider uppercase overflow-hidden transition-colors duration-300 cursor-pointer"
               >
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                   Explore Our Work
@@ -260,7 +261,7 @@ export default function About() {
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
                 />
-              </motion.button>
+              </motion.a>
             </motion.div>
           </div>
 

@@ -141,7 +141,16 @@ export default function Services() {
                   <p className="text-stone-500 font-light leading-relaxed max-w-sm">
                     {service.description}
                   </p>
-                  <div className="flex items-center gap-2 text-stone-400 group-hover:text-stone-800 transition-colors text-sm tracking-wider uppercase pt-2">
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document
+                        .getElementById("contact")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="flex items-center gap-2 text-stone-400 group-hover:text-stone-800 transition-colors text-sm tracking-wider uppercase pt-2 cursor-pointer"
+                  >
                     <span>Learn more</span>
                     <svg
                       width="16"
@@ -154,7 +163,7 @@ export default function Services() {
                     >
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                  </div>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -170,7 +179,7 @@ export default function Services() {
           className="mt-20 relative h-[300px] md:h-[400px] rounded-sm overflow-hidden"
         >
           <Image
-            src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1400&q=80"
+            src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&q=80"
             alt="Architecture workspace"
             fill
             className="object-cover"

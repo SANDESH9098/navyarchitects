@@ -76,12 +76,6 @@ export default function SelectedWorks() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500" />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <span className="px-6 py-3 border border-white text-white text-sm tracking-widest uppercase backdrop-blur-sm">
-                  View Project
-                </span>
-              </div>
             </div>
 
             {/* Caption */}

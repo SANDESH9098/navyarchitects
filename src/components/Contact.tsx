@@ -175,7 +175,7 @@ export default function Contact() {
         {/* Right - Image + Info */}
         <div className="relative hidden lg:block">
           <Image
-            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=80"
+            src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1000&q=80"
             alt="Architectural detail"
             fill
             className="object-cover"
@@ -244,13 +244,28 @@ export default function Contact() {
           &copy; 2026 Navya Architects. All rights reserved.
         </p>
         <div className="flex items-center gap-6 text-white/30 text-xs tracking-wider">
-          <a href="#" className="hover:text-white/60 transition-colors">
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white/60 transition-colors"
+          >
             Instagram
           </a>
-          <a href="#" className="hover:text-white/60 transition-colors">
+          <a
+            href="https://www.linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white/60 transition-colors"
+          >
             LinkedIn
           </a>
-          <a href="#" className="hover:text-white/60 transition-colors">
+          <a
+            href="https://www.behance.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white/60 transition-colors"
+          >
             Behance
           </a>
         </div>
