@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -129,7 +130,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      id="studio"
+      id="about"
       className="relative min-h-screen py-32 md:py-40 overflow-hidden bg-gradient-to-br from-[#f8f7f4] via-white to-[#f0ede6]"
     >
       {/* Animated Background Elements */}
@@ -152,7 +153,7 @@ export default function About() {
           className="mb-16"
         >
           <span className="inline-block px-6 py-2 border border-stone-300 rounded-full text-xs tracking-[0.3em] uppercase text-stone-600 bg-white/50 backdrop-blur-sm">
-            About Section Premium
+            About the Studio
           </span>
         </motion.div>
 
@@ -273,12 +274,12 @@ export default function About() {
               whileHover={{ scale: 1.02, zIndex: 10 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-stone-300 to-stone-400" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-stone-100 font-serif text-3xl italic opacity-50">
-                  Studio
-                </span>
-              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+                alt="Modern architecture studio"
+                fill
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-black/10 mix-blend-multiply" />
             </motion.div>
 
@@ -289,12 +290,12 @@ export default function About() {
               whileHover={{ scale: 1.05, zIndex: 20, rotate: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-stone-200" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-stone-400 font-serif text-2xl italic opacity-60">
-                  Craft
-                </span>
-              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=700&q=80"
+                alt="Interior craftsmanship"
+                fill
+                className="object-cover"
+              />
               <motion.div
                 className="absolute inset-0 border-2 border-white"
                 initial={{ scale: 0 }}
@@ -311,12 +312,12 @@ export default function About() {
               whileHover={{ scale: 1.08, zIndex: 30, rotate: 3 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-neutral-200 to-stone-300" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-stone-500 font-serif text-xl italic opacity-50">
-                  Detail
-                </span>
-              </div>
+              <Image
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80"
+                alt="Architectural detail"
+                fill
+                className="object-cover"
+              />
               <motion.div
                 className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 to-stone-800"
                 initial={{ scaleX: 0 }}

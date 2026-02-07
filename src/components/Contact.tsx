@@ -1,50 +1,198 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Contact() {
-    return (
-        <section id="contact" className="py-24 md:py-32 px-6 md:px-12 bg-[#1a1a1a] text-white">
-            <div className="max-w-4xl mx-auto text-center">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="font-serif text-5xl md:text-7xl mb-12"
-                >
-                    Let's build something <br /> timeless together.
-                </motion.h2>
+  return (
+    <section
+      id="contact"
+      className="relative bg-[#1a1a1a] text-white overflow-hidden"
+    >
+      {/* Top decorative */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-                <form className="max-w-md mx-auto space-y-8 text-left">
-                    <div className="space-y-4">
-                        <label className="block text-xs uppercase tracking-widest text-neutral-500">Name</label>
-                        <input type="text" className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors font-serif text-xl" />
-                    </div>
-                    <div className="space-y-4">
-                        <label className="block text-xs uppercase tracking-widest text-neutral-500">Email</label>
-                        <input type="email" className="w-full bg-transparent border-b border-white/20 py-2 focus:border-white outline-none transition-colors font-serif text-xl" />
-                    </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh]">
+        {/* Left - Form */}
+        <div className="py-24 md:py-32 px-6 md:px-16 lg:px-24 flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="inline-block text-xs tracking-[0.3em] uppercase text-white/40 mb-6">
+              Get in Touch
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl mb-4 leading-tight">
+              Let&apos;s build something
+              <br />
+              <span className="italic font-light text-white/60">
+                timeless
+              </span>{" "}
+              together.
+            </h2>
+            <p className="text-white/40 font-light mb-12 max-w-md">
+              Share your vision with us. We&apos;ll craft a response within 24
+              hours.
+            </p>
+          </motion.div>
 
-                    <button className="mt-12 w-full py-4 border border-white/20 hover:bg-white hover:text-black transition-all duration-300 uppercase tracking-widest text-xs">
-                        Start Project
-                    </button>
-                </form>
-
-                <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm font-sans text-neutral-500 uppercase tracking-widest">
-                    <div>
-                        <p className="text-white mb-2">London</p>
-                        <p>123 Design District</p>
-                    </div>
-                    <div>
-                        <p className="text-white mb-2">Email</p>
-                        <p>studio@navya.arch</p>
-                    </div>
-                    <div>
-                        <p className="text-white mb-2">Social</p>
-                        <p>Instagram / LinkedIn</p>
-                    </div>
-                </div>
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <label className="block text-xs uppercase tracking-widest text-neutral-500">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="block text-xs uppercase tracking-widest text-neutral-500">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20"
+                />
+              </div>
             </div>
-        </section>
-    );
+            <div className="space-y-2">
+              <label className="block text-xs uppercase tracking-widest text-neutral-500">
+                Project Type
+              </label>
+              <select className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg text-white/60 appearance-none cursor-pointer">
+                <option value="" className="bg-[#1a1a1a]">
+                  Select project type
+                </option>
+                <option value="residential" className="bg-[#1a1a1a]">
+                  Residential
+                </option>
+                <option value="commercial" className="bg-[#1a1a1a]">
+                  Commercial
+                </option>
+                <option value="interior" className="bg-[#1a1a1a]">
+                  Interior Design
+                </option>
+                <option value="consultation" className="bg-[#1a1a1a]">
+                  Consultation
+                </option>
+              </select>
+            </div>
+            <div className="space-y-2">
+              <label className="block text-xs uppercase tracking-widest text-neutral-500">
+                Message
+              </label>
+              <textarea
+                rows={3}
+                placeholder="Tell us about your project..."
+                className="w-full bg-transparent border-b border-white/15 py-3 focus:border-white/60 outline-none transition-colors text-lg placeholder:text-white/20 resize-none"
+              />
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-4 w-full py-4 bg-white text-black hover:bg-white/90 transition-all duration-300 uppercase tracking-[0.2em] text-sm font-medium"
+            >
+              Start Your Project
+            </motion.button>
+          </motion.form>
+        </div>
+
+        {/* Right - Image + Info */}
+        <div className="relative hidden lg:block">
+          <Image
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=80"
+            alt="Architectural detail"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+
+          {/* Contact details over image */}
+          <div className="absolute bottom-0 left-0 right-0 p-12 bg-gradient-to-t from-black/80 to-transparent">
+            <div className="grid grid-cols-1 gap-8 text-sm">
+              <div>
+                <p className="text-white/40 uppercase tracking-widest text-xs mb-2">
+                  India Office
+                </p>
+                <p className="text-white font-light">
+                  123 Design District, Bangalore
+                </p>
+                <p className="text-white/60 font-light">
+                  Karnataka, India 560001
+                </p>
+              </div>
+              <div className="flex gap-12">
+                <div>
+                  <p className="text-white/40 uppercase tracking-widest text-xs mb-2">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:hello@navyaarchitects.com"
+                    className="text-white font-light hover:text-white/70 transition-colors"
+                  >
+                    hello@navyaarchitects.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-white/40 uppercase tracking-widest text-xs mb-2">
+                    Phone
+                  </p>
+                  <p className="text-white font-light">+91 98765 43210</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile contact info */}
+      <div className="lg:hidden px-6 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm font-sans text-neutral-400 uppercase tracking-widest pt-8 border-t border-white/10">
+          <div>
+            <p className="text-white mb-2">India</p>
+            <p className="normal-case">123 Design District, Bangalore</p>
+          </div>
+          <div>
+            <p className="text-white mb-2">Email</p>
+            <p className="normal-case">hello@navyaarchitects.com</p>
+          </div>
+          <div>
+            <p className="text-white mb-2">Social</p>
+            <p className="normal-case">Instagram / LinkedIn</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer bar */}
+      <div className="border-t border-white/10 px-6 md:px-16 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-white/30 text-xs tracking-wider">
+          &copy; 2026 Navya Architects. All rights reserved.
+        </p>
+        <div className="flex items-center gap-6 text-white/30 text-xs tracking-wider">
+          <a href="#" className="hover:text-white/60 transition-colors">
+            Instagram
+          </a>
+          <a href="#" className="hover:text-white/60 transition-colors">
+            LinkedIn
+          </a>
+          <a href="#" className="hover:text-white/60 transition-colors">
+            Behance
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }
