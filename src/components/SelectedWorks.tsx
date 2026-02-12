@@ -72,7 +72,7 @@ export default function SelectedWorks() {
           <h2 className="font-serif text-4xl md:text-6xl">Selected Works</h2>
         </div>
         <span className="hidden md:block font-sans text-xs tracking-widest uppercase opacity-50">
-          Shift + Scroll
+          Use arrows to Navigate
         </span>
       </div>
 
