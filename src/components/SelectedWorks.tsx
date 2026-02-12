@@ -42,6 +42,9 @@ const projects = [
 export default function SelectedWorks() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  // Create looped projects array
+  const loopedProjects = [...projects, ...projects, ...projects];
+
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
       const scrollAmount = scrollContainerRef.current.clientWidth * 0.8;
@@ -124,14 +127,17 @@ export default function SelectedWorks() {
           onWheel={handleWheel}
           className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide"
         >
-          {projects.map((project, index) => (
+          {loopedProjects.map((project, index) => (
             <motion.div
-              key={project.id}
+              key={`${project.id}-${index}`}
               className="flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[40vw] snap-center group cursor-pointer"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{
+                duration: 0.8,
+                delay: (index % projects.length) * 0.1,
+              }}
             >
               {/* Image */}
               <div className="relative aspect-[4/5] overflow-hidden mb-6 rounded-sm">
