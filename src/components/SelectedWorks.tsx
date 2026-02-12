@@ -114,9 +114,8 @@ export default function SelectedWorks() {
               strokeLinejoin="round"
               strokeWidth={2}
               d="M9 5l7 7-7 7"
-          {/* Spacer */}
-          <div className="w-12 flex-shrink-0" />
-        </div
+            />
+          </svg>
         </button>
 
         {/* Horizontal Scroll Container */}
@@ -125,44 +124,45 @@ export default function SelectedWorks() {
           onWheel={handleWheel}
           className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide"
         >
-        {projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            className="flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[40vw] snap-center group cursor-pointer"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-          >
-            {/* Image */}
-            <div className="relative aspect-[4/5] overflow-hidden mb-6 rounded-sm">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500" />
-            </div>
-
-            {/* Caption */}
-            <div className="flex justify-between items-baseline border-t border-white/20 pt-4">
-              <h3 className="font-serif text-2xl md:text-3xl group-hover:translate-x-2 transition-transform duration-500">
-                {project.title}
-              </h3>
-              <div className="text-right">
-                <span className="block font-sans text-xs tracking-widest uppercase opacity-60">
-                  {project.category}
-                </span>
-                <span className="block font-sans text-xs opacity-40 mt-1">
-                  {project.year}
-                </span>
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              className="flex-shrink-0 w-[85vw] md:w-[60vw] lg:w-[40vw] snap-center group cursor-pointer"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/5] overflow-hidden mb-6 rounded-sm">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500" />
               </div>
-            </div>
-          </motion.div>
-        ))}
-        {/* Spacer */}
-        <div className="w-12 flex-shrink-0" />
+
+              {/* Caption */}
+              <div className="flex justify-between items-baseline border-t border-white/20 pt-4">
+                <h3 className="font-serif text-2xl md:text-3xl group-hover:translate-x-2 transition-transform duration-500">
+                  {project.title}
+                </h3>
+                <div className="text-right">
+                  <span className="block font-sans text-xs tracking-widest uppercase opacity-60">
+                    {project.category}
+                  </span>
+                  <span className="block font-sans text-xs opacity-40 mt-1">
+                    {project.year}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+          {/* Spacer */}
+          <div className="w-12 flex-shrink-0" />
+        </div>
       </div>
     </section>
   );
