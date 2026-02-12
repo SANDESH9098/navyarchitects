@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 const projects = [
   {
@@ -39,6 +40,25 @@ const projects = [
 ];
 
 export default function SelectedWorks() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth * 0.8;
+      scrollContainerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (e.shiftKey && scrollContainerRef.current) {
+      e.preventDefault();
+      scrollContainerRef.current.scrollLeft += e.deltaY;
+    }
+  };
+
   return (
     <section
       id="projects"
@@ -52,12 +72,59 @@ export default function SelectedWorks() {
           <h2 className="font-serif text-4xl md:text-6xl">Selected Works</h2>
         </div>
         <span className="hidden md:block font-sans text-xs tracking-widest uppercase opacity-50">
-          Drag / Scroll
+          Shift + Scroll
         </span>
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div className="flex gap-8 px-6 md:px-12 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide">
+      {/* Navigation Arrows */}
+      <div className="relative px-6 md:px-12">
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
+          aria-label="Scroll left"
+        >
+          <svg
+            className="w-6 h-6 text-white group-hover:scale-110 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
+          aria-label="Scroll right"
+        >
+          <svg
+            className="w-6 h-6 text-white group-hover:scale-110 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+          {/* Spacer */}
+          <div className="w-12 flex-shrink-0" />
+        </div
+        </button>
+
+        {/* Horizontal Scroll Container */}
+        <div
+          ref={scrollContainerRef}
+          onWheel={handleWheel}
+          className="flex gap-8 overflow-x-auto pb-12 snap-x snap-mandatory scrollbar-hide"
+        >
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
